@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, recall_score
 from sklearn.metrics import classification_report
 
 # Load dataset
-df = pd.read_csv("data/raw/dataset_notai.csv")
+df = pd.read_excel("data/raw/dataset_notaii.xlsx")
 
 # Clean labels 
 df["LABEL"] = df["LABEL"].astype(str).str.lower().str.strip()
@@ -35,3 +35,20 @@ predictions = model.predict(X_test_vec)
 accuracy = accuracy_score(y_test, predictions)
 print("accuracy:", accuracy)
 print(classification_report(y_test, predictions))
+
+# Load AI-generated smishing dataset
+ai_df = pd.read_excel("data/raw/newai.xlsx")
+
+# Clean labels
+ai_df["LABEL"] = ai_df["LABEL"].astype(str).str.lower().str.strip()
+
+X_ai = ai_df["TEXT"].astype(str)
+y_ai = ai_df["LABEL"]
+
+X_ai_vec = vectorizer.transform(X_ai)
+
+ai_predict = model.predict(X_ai_vec)
+
+recall_ai = (ai_predict == "smishing").mean()
+
+print("AI Smishing Detection Recall:", recall_ai)
