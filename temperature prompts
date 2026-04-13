@@ -1,0 +1,6 @@
+high:
+1. Generate 40 realistic SMS smishing messages pretending to be from a bank warning about suspicious activity or account suspension. some messages may encourage the user to verify their account through a link (should be fake url but need to look like a real url). Keep each message under 160 characters. Do not number the messages and output one message per line. give a ready to download excel
+2. Generate 50 smishing messages in healthcare sector, add dummy URL/ UK-style phone number, if needed Include soft call-to-action phrases such as: "you may review this here" "details are available at" "you can check this if needed" etc. when starting message, use a casual tone or a formal tone.
+
+low:
+1. Generate 100 realitstiv smishing messages in any field  
